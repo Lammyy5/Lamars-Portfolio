@@ -1,22 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 import Header from './components/Header';
 import Footer from './components/Footer';
-
+import AboutMe from './pages/AboutMe'
+import Portfolio from './pages/Portfolio'
+import Contact from './pages/Contact'
+import Resume from './pages/Resume'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function App() {
 
 
   return (
-    
-      <div>
+    <div className="container">
+      <Router>
         <Header />
-       My name is Lamar Reliford I am a 24 year old coding bootcamp student at UCR. I started my education journey at Riverside Community College as a kinesiology major but quickly realized it wasnt the major for me. As a result of my realization I switched my major to business which instrested me since a lot of people i know own businesses. However I ended up taking a break from school to focus on work and educating myself. In my pursuit of new opportunity I
-    stumbled across coding and have been instrested in growing in this field.
-    I already learned some html from some free sites that I found online but never got around to finish learning this
-    skill.
+        <div className="container mt-5">
+          <Routes>
+            <Route path="/" element={<AboutMe />} />
+            <Route path="/pages/aboutme" element={<AboutMe />} />
+            <Route path="/pages/portfolio" element={<Portfolio />} />
+            <Route path="/pages/contact" element={<Contact />} />
+            <Route path="/pages/resume" element={<Resume />} />
+          </Routes>
+        </div>
         <Footer />
+      </Router>
     </div>
   )
 }
